@@ -1,0 +1,98 @@
+<Window x:Class="FinanceTracker.AddTransactionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Transaction"
+        Height="330"
+        Width="420"
+        MinHeight="330"
+        MinWidth="420"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Background="#F4F6F8"
+        FontFamily="Segoe UI">
+    <Border Margin="24"
+            Padding="24"
+            Background="White"
+            BorderBrush="#D8DEE8"
+            BorderThickness="1"
+            CornerRadius="8">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="18" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="14" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="14" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="14" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Text="Add Transaction"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Foreground="#111827" />
+
+            <StackPanel Grid.Row="2">
+                <TextBlock Text="Title"
+                           Foreground="#5F6B7A"
+                           Margin="0,0,0,4" />
+                <TextBox x:Name="TitleTextBox"
+                         Height="34"
+                         Padding="8,5"
+                         VerticalContentAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="4">
+                <TextBlock Text="Amount"
+                           Foreground="#5F6B7A"
+                           Margin="0,0,0,4" />
+                <TextBox x:Name="AmountTextBox"
+                         Height="34"
+                         Padding="8,5"
+                         VerticalContentAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="6">
+                <TextBlock Text="Type"
+                           Foreground="#5F6B7A"
+                           Margin="0,0,0,4" />
+                <ComboBox x:Name="TypeComboBox"
+                          Height="34"
+                          SelectedIndex="1">
+                    <ComboBoxItem Content="Income" />
+                    <ComboBoxItem Content="Expense" />
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Grid.Row="8">
+                <TextBlock Text="Date"
+                           Foreground="#5F6B7A"
+                           Margin="0,0,0,4" />
+                <DatePicker x:Name="DatePicker"
+                            Height="34" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="10"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="Cancel"
+                        Width="86"
+                        Height="34"
+                        Margin="0,0,10,0"
+                        Click="CancelButton_Click" />
+                <Button Content="Save"
+                        Width="86"
+                        Height="34"
+                        Background="#2563EB"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Click="SaveButton_Click" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

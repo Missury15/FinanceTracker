@@ -6,10 +6,10 @@
         xmlns:models="clr-namespace:FinanceTracker.Models"
         mc:Ignorable="d"
         Title="Finance Tracker"
-        Height="560"
-        Width="760"
-        MinHeight="520"
-        MinWidth="640"
+        Height="760"
+        Width="900"
+        MinHeight="620"
+        MinWidth="720"
         Background="#F4F6F8"
         FontFamily="Segoe UI"
         WindowStartupLocation="CenterScreen">
@@ -24,12 +24,12 @@
             <Setter Property="Foreground" Value="#1E293B" />
             <Setter Property="FontSize" Value="18" />
             <Setter Property="FontWeight" Value="SemiBold" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
 
         <Style x:Key="PrimaryButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#2563fB" />
+            <Setter Property="Background" Value="#2563EB" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Cursor" Value="Hand" />
@@ -39,96 +39,148 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="40">
-        <Border Background="White"
-                BorderBrush="#D8DEE8"
-                BorderThickness="1"
-                CornerRadius="8"
-                Padding="32">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="28" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="28" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="28" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0"
-                           Text="Finance Tracker"
-                           FontSize="28"
-                           FontWeight="Bold"
-                           Foreground="#111827" />
-
-                <Grid Grid.Row="2"
-                      MaxWidth="420"
-                      HorizontalAlignment="Left">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="36" />
-                        <RowDefinition Height="36" />
-                        <RowDefinition Height="36" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150" />
-                        <ColumnDefinition Width="220" />
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Row="0"
-                               Grid.Column="0"
-                               Text="Balance"
-                               Style="{StaticResource SummaryLabelStyle}" />
-                    <TextBlock x:Name="BalanceTextBlock"
-                               Grid.Row="0"
-                               Grid.Column="1"
-                               Style="{StaticResource SummaryValueStyle}" />
-
-                    <TextBlock Grid.Row="1"
-                               Grid.Column="0"
-                               Text="Income"
-                               Style="{StaticResource SummaryLabelStyle}" />
-                    <TextBlock x:Name="IncomeTextBlock"
-                               Grid.Row="1"
-                               Grid.Column="1"
-                               Style="{StaticResource SummaryValueStyle}" />
-
-                    <TextBlock Grid.Row="2"
-                               Grid.Column="0"
-                               Text="Expenses"
-                               Style="{StaticResource SummaryLabelStyle}" />
-                    <TextBlock x:Name="ExpensesTextBlock"
-                               Grid.Row="2"
-                               Grid.Column="1"
-                               Style="{StaticResource SummaryValueStyle}" />
-                </Grid>
-
-                <Button Grid.Row="4"
-                        Content="+ Add Transaction"
-                        HorizontalAlignment="Left"
-                        Style="{StaticResource PrimaryButtonStyle}"
-                        Click="AddTransactionButton_Click" />
-
-                <Grid Grid.Row="6">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="1" />
-                        <RowDefinition Height="12" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Grid.Row="0"
-                               Text="Recent Transactions"
-                               FontSize="18"
-                               FontWeight="SemiBold"
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="40">
+            <Border Background="White"
+                    BorderBrush="#D8DEE8"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="32">
+                <StackPanel>
+                    <TextBlock Text="Finance Tracker"
+                               FontSize="28"
+                               FontWeight="Bold"
                                Foreground="#111827" />
 
-                    <Border Grid.Row="1"
-                            Margin="0,12,0,0"
+                    <Grid Width="245"
+                          HorizontalAlignment="Left"
+                          Margin="0,28,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36" />
+                            <RowDefinition Height="36" />
+                            <RowDefinition Height="36" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="88" />
+                            <ColumnDefinition Width="16" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Balance"
+                                   Style="{StaticResource SummaryLabelStyle}" />
+                        <TextBlock x:Name="BalanceTextBlock"
+                                   Grid.Row="0"
+                                   Grid.Column="2"
+                                   Style="{StaticResource SummaryValueStyle}" />
+
+                        <TextBlock Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="Income"
+                                   Style="{StaticResource SummaryLabelStyle}" />
+                        <TextBlock x:Name="IncomeTextBlock"
+                                   Grid.Row="1"
+                                   Grid.Column="2"
+                                   Style="{StaticResource SummaryValueStyle}" />
+
+                        <TextBlock Grid.Row="2"
+                                   Grid.Column="0"
+                                   Text="Expenses"
+                                   Style="{StaticResource SummaryLabelStyle}" />
+                        <TextBlock x:Name="ExpensesTextBlock"
+                                   Grid.Row="2"
+                                   Grid.Column="2"
+                                   Style="{StaticResource SummaryValueStyle}" />
+                    </Grid>
+
+                    <Grid Margin="0,30,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Text="Income vs Expenses"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Foreground="#111827"
+                                   VerticalAlignment="Center" />
+
+                        <ComboBox x:Name="ChartPeriodComboBox"
+                                  Grid.Column="1"
+                                  Width="135"
+                                  Height="32"
+                                  SelectedIndex="1"
+                                  SelectionChanged="ChartPeriodComboBox_SelectionChanged">
+                            <ComboBoxItem Content="Last 7 days"
+                                          Tag="7" />
+                            <ComboBoxItem Content="Last 30 days"
+                                          Tag="30" />
+                            <ComboBoxItem Content="Last 90 days"
+                                          Tag="90" />
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid Margin="0,12,0,0">
+                        <Border BorderBrush="#D8DEE8"
+                                BorderThickness="1"
+                                CornerRadius="6"
+                                Background="#FAFBFC" />
+                        <Canvas x:Name="ChartCanvas"
+                                Height="190"
+                                ClipToBounds="True"
+                                SizeChanged="ChartCanvas_SizeChanged" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0,10,0,0">
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,0,18,0">
+                            <Rectangle Width="20"
+                                       Height="3"
+                                       Fill="#16A34A"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,7,0" />
+                            <TextBlock Text="Income"
+                                       Foreground="#5F6B7A"
+                                       FontSize="13" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="20"
+                                       Height="3"
+                                       Fill="#DC2626"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,7,0" />
+                            <TextBlock Text="Expenses"
+                                       Foreground="#5F6B7A"
+                                       FontSize="13" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button Content="+ Add Transaction"
+                            HorizontalAlignment="Left"
+                            Margin="0,28,0,0"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Click="AddTransactionButton_Click" />
+
+                    <TextBlock Text="Recent Transactions"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#111827"
+                               Margin="0,30,0,0" />
+
+                    <Border Height="1"
+                            Width="470"
+                            HorizontalAlignment="Left"
+                            Margin="0,12,0,12"
                             Background="#D8DEE8" />
 
                     <ListView x:Name="TransactionsListView"
-                              Grid.Row="3"
+                              Width="470"
+                              MaxHeight="175"
+                              HorizontalAlignment="Left"
                               BorderThickness="0"
                               Background="Transparent"
                               ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -141,17 +193,19 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate DataType="{x:Type models:Transaction}">
-                                <Grid MinHeight="34">
+                                <Grid MinHeight="34"
+                                      Width="440">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="140" />
-                                        <ColumnDefinition Width="110" />
+                                        <ColumnDefinition Width="205" />
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="105" />
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock Grid.Column="0"
                                                Text="{Binding Title}"
                                                FontSize="15"
                                                Foreground="#1F2937"
+                                               TextTrimming="CharacterEllipsis"
                                                VerticalAlignment="Center" />
                                     <TextBlock Grid.Column="1"
                                                Text="{Binding AmountText}"
@@ -180,8 +234,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </Grid>
-            </Grid>
-        </Border>
-    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
 </Window>

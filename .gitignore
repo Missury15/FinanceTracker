@@ -2,3 +2,6 @@ bin/
 obj/
 .vs/
 *.user
+FinanceTracker/Data/*.db
+FinanceTracker/Data/*.db-shm
+FinanceTracker/Data/*.db-wal

@@ -139,6 +139,20 @@ public sealed class TransactionService
         command.ExecuteNonQuery();
     }
 
+    public void ResetAllTransactions()
+    {
+        using var connection = CreateConnection();
+        connection.Open();
+
+        using var deleteCommand = connection.CreateCommand();
+        deleteCommand.CommandText = "DELETE FROM Transactions;";
+        deleteCommand.ExecuteNonQuery();
+
+        using var resetIdCommand = connection.CreateCommand();
+        resetIdCommand.CommandText = "DELETE FROM sqlite_sequence WHERE name = 'Transactions';";
+        resetIdCommand.ExecuteNonQuery();
+    }
+
     private void InitializeDatabase()
     {
         using var connection = CreateConnection();

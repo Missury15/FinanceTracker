@@ -37,6 +37,16 @@
             <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="Padding" Value="16,10" />
         </Style>
+
+        <Style x:Key="DangerButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#DC2626" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="16,10" />
+        </Style>
     </Window.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -128,7 +138,7 @@
                                 CornerRadius="6"
                                 Background="#FAFBFC" />
                         <Canvas x:Name="ChartCanvas"
-                                Height="190"
+                                Height="220"
                                 ClipToBounds="True"
                                 SizeChanged="ChartCanvas_SizeChanged" />
                     </Grid>
@@ -159,11 +169,17 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <Button Content="+ Add Transaction"
-                            HorizontalAlignment="Left"
-                            Margin="0,28,0,0"
-                            Style="{StaticResource PrimaryButtonStyle}"
-                            Click="AddTransactionButton_Click" />
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Left"
+                                Margin="0,28,0,0">
+                        <Button Content="+ Add Transaction"
+                                Style="{StaticResource PrimaryButtonStyle}"
+                                Click="AddTransactionButton_Click" />
+                        <Button Content="Reset Data"
+                                Margin="12,0,0,0"
+                                Style="{StaticResource DangerButtonStyle}"
+                                Click="ResetDataButton_Click" />
+                    </StackPanel>
 
                     <TextBlock Text="Recent Transactions"
                                FontSize="18"

@@ -6,6 +6,7 @@
         SizeToContent="Height"
         MinHeight="440"
         MinWidth="440"
+        Icon="Assets/AppIcon.ico"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterOwner"
         Background="{StaticResource PageBackgroundBrush}"

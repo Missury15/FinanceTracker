@@ -7,14 +7,18 @@
         mc:Ignorable="d"
         Title="Finance Tracker"
         Height="790"
-        Width="960"
-        MinHeight="680"
-        MinWidth="780"
+        Width="920"
+        MinHeight="640"
+        MinWidth="680"
+        Icon="Assets/AppIcon.ico"
         Background="{StaticResource PageBackgroundBrush}"
         FontFamily="Segoe UI"
+        SnapsToDevicePixels="True"
+        UseLayoutRounding="True"
         WindowStartupLocation="CenterScreen">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="38" Width="862">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto">
+        <Grid Margin="22">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -28,19 +32,55 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
-                    <TextBlock Text="Finance Tracker"
-                               FontSize="30"
-                               FontWeight="Bold"
-                               Foreground="{StaticResource TextBrush}" />
-                    <TextBlock Text="Dashboard"
-                               FontSize="14"
-                               Foreground="{StaticResource MutedTextBrush}"
-                               Margin="0,4,0,0" />
-                </StackPanel>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="46"
+                            Height="46"
+                            Background="{StaticResource BrandBrush}"
+                            CornerRadius="14"
+                            VerticalAlignment="Center">
+                        <Canvas Width="28"
+                                Height="28"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                            <Path Data="M 3 20 L 9 14 L 14 17 L 23 7"
+                                  Stroke="White"
+                                  StrokeThickness="3"
+                                  StrokeStartLineCap="Round"
+                                  StrokeEndLineCap="Round"
+                                  StrokeLineJoin="Round" />
+                            <Ellipse Canvas.Left="20"
+                                     Canvas.Top="4"
+                                     Width="6"
+                                     Height="6"
+                                     Fill="{StaticResource IncomeBrush}"
+                                     Stroke="White"
+                                     StrokeThickness="1.5" />
+                        </Canvas>
+                    </Border>
+
+                    <StackPanel Grid.Column="1"
+                                Margin="14,0,0,0"
+                                VerticalAlignment="Center">
+                        <TextBlock Text="Finance Tracker"
+                                   FontSize="30"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource TextBrush}"
+                                   TextTrimming="CharacterEllipsis" />
+                        <TextBlock Text="Dashboard"
+                                   FontSize="14"
+                                   Foreground="{StaticResource MutedTextBrush}"
+                                   Margin="0,4,0,0" />
+                    </StackPanel>
+                </Grid>
 
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
+                            Margin="18,0,0,0"
                             VerticalAlignment="Center">
                     <Button Content="+ Add Transaction"
                             Style="{StaticResource PrimaryButtonStyle}"

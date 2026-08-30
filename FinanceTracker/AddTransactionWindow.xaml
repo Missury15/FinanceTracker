@@ -2,97 +2,90 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Add Transaction"
-        Width="420"
+        Width="440"
         SizeToContent="Height"
-        MinHeight="420"
-        MinWidth="420"
+        MinHeight="440"
+        MinWidth="440"
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterOwner"
-        Background="#F4F6F8"
+        Background="{StaticResource PageBackgroundBrush}"
         FontFamily="Segoe UI">
-    <Border Margin="24"
-            Padding="24"
-            Background="White"
-            BorderBrush="#D8DEE8"
-            BorderThickness="1"
-            CornerRadius="8">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="18" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="14" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="14" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="14" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+    <Grid Margin="28">
+        <Border Style="{StaticResource SectionCardStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="14" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="14" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="14" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="24" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0"
-                       Text="Add Transaction"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       Foreground="#111827" />
+                <TextBlock Grid.Row="0"
+                           Text="Add Transaction"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextBrush}" />
 
-            <StackPanel Grid.Row="2">
-                <TextBlock Text="Title"
-                           Foreground="#5F6B7A"
-                           Margin="0,0,0,4" />
-                <TextBox x:Name="TitleTextBox"
-                         Height="34"
-                         Padding="8,5"
-                         VerticalContentAlignment="Center" />
-            </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="Title"
+                               Style="{StaticResource StatLabelStyle}"
+                               Margin="0,0,0,6" />
+                    <TextBox x:Name="TitleTextBox"
+                             Style="{StaticResource RoundedTextBoxStyle}" />
+                </StackPanel>
 
-            <StackPanel Grid.Row="4">
-                <TextBlock Text="Amount"
-                           Foreground="#5F6B7A"
-                           Margin="0,0,0,4" />
-                <TextBox x:Name="AmountTextBox"
-                         Height="34"
-                         Padding="8,5"
-                         VerticalContentAlignment="Center" />
-            </StackPanel>
+                <StackPanel Grid.Row="4">
+                    <TextBlock Text="Amount"
+                               Style="{StaticResource StatLabelStyle}"
+                               Margin="0,0,0,6" />
+                    <TextBox x:Name="AmountTextBox"
+                             Style="{StaticResource RoundedTextBoxStyle}" />
+                </StackPanel>
 
-            <StackPanel Grid.Row="6">
-                <TextBlock Text="Type"
-                           Foreground="#5F6B7A"
-                           Margin="0,0,0,4" />
-                <ComboBox x:Name="TypeComboBox"
-                          Height="34"
-                          SelectedIndex="1">
-                    <ComboBoxItem Content="Income" />
-                    <ComboBoxItem Content="Expense" />
-                </ComboBox>
-            </StackPanel>
+                <StackPanel Grid.Row="6">
+                    <TextBlock Text="Type"
+                               Style="{StaticResource StatLabelStyle}"
+                               Margin="0,0,0,6" />
+                    <ComboBox x:Name="TypeComboBox"
+                              Style="{StaticResource RoundedComboBoxStyle}"
+                              SelectedIndex="1">
+                        <ComboBoxItem Content="Income" />
+                        <ComboBoxItem Content="Expense" />
+                    </ComboBox>
+                </StackPanel>
 
-            <StackPanel Grid.Row="8">
-                <TextBlock Text="Date"
-                           Foreground="#5F6B7A"
-                           Margin="0,0,0,4" />
-                <DatePicker x:Name="DatePicker"
-                            Height="34" />
-            </StackPanel>
+                <StackPanel Grid.Row="8">
+                    <TextBlock Text="Date"
+                               Style="{StaticResource StatLabelStyle}"
+                               Margin="0,0,0,6" />
+                    <DatePicker x:Name="DatePicker"
+                                Height="40"
+                                Padding="8"
+                                BorderBrush="{StaticResource BorderBrushSoft}"
+                                BorderThickness="1" />
+                </StackPanel>
 
-            <StackPanel Grid.Row="10"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Right">
-                <Button Content="Cancel"
-                        Width="86"
-                        Height="34"
-                        Margin="0,0,10,0"
-                        Click="CancelButton_Click" />
-                <Button Content="Save"
-                        Width="86"
-                        Height="34"
-                        Background="#2563EB"
-                        Foreground="White"
-                        BorderThickness="0"
-                        Click="SaveButton_Click" />
-            </StackPanel>
-        </Grid>
-    </Border>
+                <StackPanel Grid.Row="10"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button Content="Cancel"
+                            Width="92"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Click="CancelButton_Click" />
+                    <Button Content="Save"
+                            Width="92"
+                            Margin="10,0,0,0"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Click="SaveButton_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
 </Window>

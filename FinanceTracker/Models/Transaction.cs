@@ -28,7 +28,7 @@ public sealed class Transaction
     }
 
     public long Id { get; }
-
+    
     public string Title { get; }
 
     public decimal Amount { get; }

@@ -27,7 +27,6 @@ public sealed class Transaction
         Date = date.Date;
     }
 
-
     public long Id { get; }
     
     public string Title { get; }

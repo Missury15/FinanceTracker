@@ -28,8 +28,8 @@
 
         <Style x:Key="StatLabelStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="{StaticResource MutedTextBrush}" />
-            <Setter Property="FontSize" Value="13" />
-            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Bold" />
         </Style>
 
         <Style x:Key="StatValueStyle" TargetType="{x:Type TextBlock}">
@@ -141,12 +141,16 @@
         </Style>
 
         <Style x:Key="RoundedTextBoxStyle" TargetType="{x:Type TextBox}">
-            <Setter Property="Height" Value="40" />
-            <Setter Property="Padding" Value="12,8" />
+            <Setter Property="Height" Value="46" />
+            <Setter Property="Padding" Value="14,0" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="CaretBrush" Value="{StaticResource BrandBrush}" />
+            <Setter Property="SelectionBrush" Value="#BFDBFE" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -158,11 +162,16 @@
                                 CornerRadius="10"
                                 SnapsToDevicePixels="True">
                             <ScrollViewer x:Name="PART_ContentHost"
-                                          Margin="{TemplateBinding Padding}" />
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
                         <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="TextBoxBorder" Property="BorderBrush" Value="{StaticResource BorderBrushStrong}" />
+                            </Trigger>
                             <Trigger Property="IsKeyboardFocusWithin" Value="True">
                                 <Setter TargetName="TextBoxBorder" Property="BorderBrush" Value="{StaticResource BrandBrush}" />
+                                <Setter TargetName="TextBoxBorder" Property="BorderThickness" Value="2" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -171,9 +180,10 @@
         </Style>
 
         <Style x:Key="RoundedComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}">
-            <Setter Property="MinHeight" Value="34" />
+            <Setter Property="MinHeight" Value="38" />
             <Setter Property="Padding" Value="12,7" />
             <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="FontSize" Value="15" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ComboBoxItem}">
@@ -197,14 +207,15 @@
         </Style>
 
         <Style x:Key="RoundedComboBoxStyle" TargetType="{x:Type ComboBox}">
-            <Setter Property="Height" Value="40" />
+            <Setter Property="Height" Value="46" />
             <Setter Property="MinWidth" Value="140" />
             <Setter Property="Padding" Value="12,0,36,0" />
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="{StaticResource BorderBrushSoft}" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
-            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="SemiBold" />
             <Setter Property="ItemContainerStyle" Value="{StaticResource RoundedComboBoxItemStyle}" />
             <Setter Property="Template">
                 <Setter.Value>

@@ -4,7 +4,7 @@
         Title="Add Transaction"
         Width="440"
         SizeToContent="Height"
-        MinHeight="440"
+        MinHeight="470"
         MinWidth="440"
         Icon="Assets/AppIcon.ico"
         ResizeMode="CanMinimize"
@@ -30,9 +30,17 @@
 
                 <TextBlock Grid.Row="0"
                            Text="Add Transaction"
-                           FontSize="24"
+                           FontSize="26"
                            FontWeight="Bold"
-                           Foreground="{StaticResource TextBrush}" />
+                           Foreground="{StaticResource TextBrush}">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="1"
+                                          Direction="0"
+                                          Opacity="0.18"
+                                          ShadowDepth="0"
+                                          Color="#0F172A" />
+                    </TextBlock.Effect>
+                </TextBlock>
 
                 <StackPanel Grid.Row="2">
                     <TextBlock Text="Title"
@@ -67,10 +75,14 @@
                                Style="{StaticResource StatLabelStyle}"
                                Margin="0,0,0,6" />
                     <DatePicker x:Name="DatePicker"
-                                Height="40"
-                                Padding="8"
+                                Height="46"
+                                Padding="12,0"
                                 BorderBrush="{StaticResource BorderBrushSoft}"
-                                BorderThickness="1" />
+                                BorderThickness="1"
+                                FontSize="15"
+                                FontWeight="SemiBold"
+                                Foreground="{StaticResource TextBrush}"
+                                VerticalContentAlignment="Center" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="10"
